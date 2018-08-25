@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Heading from './../../common/components/Heading/Heading'
+import Heading from './../../common/components/Heading/Heading';
+import Logo from '../../common/components/Logo/Logo';
+import styles from './Start.module.scss';
 
 class Start extends Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class Start extends Component {
 
     return (
       <div>
+        <Logo hasText={false} logoClassName={styles.logo}/>
         <Heading text={'Start'}/>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
