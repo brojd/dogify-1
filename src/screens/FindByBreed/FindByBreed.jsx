@@ -3,6 +3,7 @@ import Heading from '../../common/components/Heading/Heading';
 import axios from 'axios';
 import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
+import Button from '../../common/components/Button/Button'
 
 class FindByBreed extends Component {
   constructor(props) {
@@ -30,12 +31,15 @@ class FindByBreed extends Component {
         <ChooseBreed onGoClick={this.onGoClick}/>
         {
           this.state.listOfLinks.map(link => (
-            <img
-              src={link}
-              alt={'dog-image'}
-              key={link}
-              className={styles['dog-img']}
-            />
+            <div>
+              <img
+                src={link}
+                alt={'dog-image'}
+                key={link}
+                className={styles['dog-img']}
+              />
+              <Button text={'Add'} buttonClassName={styles.button} />
+            </div>
           ))
         }
       </section>

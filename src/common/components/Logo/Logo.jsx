@@ -9,7 +9,11 @@ class Logo extends Component {
   render() {
     return (
       <div>
-        <img src={logo} alt={'logo'} className={this.props.logoClassName} />
+        <img
+          src={logo}
+          alt={'logo'}
+          className={this.props.logoClassName}
+        />
         {
           this.props.hasText &&
           <div>DOGify</div>
