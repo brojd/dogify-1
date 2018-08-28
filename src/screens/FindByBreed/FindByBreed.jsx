@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Heading from '../../common/components/Heading/Heading';
+import Logo from '../../common/components/Logo/Logo';
 import axios from 'axios';
 import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
@@ -26,7 +27,8 @@ class FindByBreed extends Component {
   render() {
     return (
       <section className={styles.wrapper}>
-        <Heading text={'Find By Breed'} />
+        <Logo hasText={false} logoClassName={styles.logo} />
+        <Heading text={'FIND BY BREED'} />
         <ChooseBreed onGoClick={this.onGoClick}/>
         {
           this.state.listOfLinks.map(link => (
