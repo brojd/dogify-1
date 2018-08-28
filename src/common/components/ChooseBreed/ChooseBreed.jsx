@@ -33,7 +33,6 @@ class ChooseBreed extends Component {
         <select 
           onChange={this.onBreedChange}
           value={this.state.currentBreed}
-        
         >
           <option>Choose Breed</option>
           {
@@ -43,7 +42,7 @@ class ChooseBreed extends Component {
                 key={Breed}
               >
                 {Breed}
-              </option>
+                </option>
             ))
           }
         </select>
