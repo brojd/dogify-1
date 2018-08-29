@@ -33,7 +33,7 @@ class FindByBreed extends Component {
         <ChooseBreed onGoClick={this.onGoClick}/>
         {
           this.state.listOfLinks.map(link => (
-            <div>
+            <div className={styles['dog-element']}>
               <img
                 src={link}
                 alt={'dog-image'}

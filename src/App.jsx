@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import sassStyles from './App.module.scss';
-import FindByBreed from './screens/FindByBreed/FindByBreed'
+import RandomImage from './screens/RandomImage/RandomImage'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <FindByBreed />
+        <RandomImage />
       </div>
     );
   }

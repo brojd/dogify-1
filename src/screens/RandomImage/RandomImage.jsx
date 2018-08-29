@@ -4,6 +4,7 @@ import Logo from '../../common/components/Logo/Logo';
 import axios from 'axios';
 import styles from './RandomImage.module.scss'
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
+import Button from '../../common/components/Button/Button'
 
 class RandomImage extends Component {
   constructor(props) {
@@ -29,13 +30,14 @@ class RandomImage extends Component {
         <Logo hasText={false} logoClassName={styles.logo} />
         <Heading text={'RANDOM IMAGE'} />
         <ChooseBreed onGoClick={this.onGoClick}/>
-        {
+        <div>
           <img
             src={this.state.randomImg}
             alt={'dog-image'}
             className={styles['dog-img']}
           />
-        }
+          <Button text={'Add'}/>
+        </div>
       </section>
     )
   }
