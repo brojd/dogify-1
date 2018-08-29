@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Heading from '../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import styles from "../MyImages/MyImages.module.scss";
+import Navigation from '../../common/Navigation/Navigation'
 
 class MyImages extends Component {
   constructor(props) {
@@ -10,10 +11,13 @@ class MyImages extends Component {
 
   render() {
     return (
-      <section className={styles.wrapper}>
-        <Logo hasText={false} logoClassName={styles.logo} />
-        <Heading text={'MY IMAGES'} />
-      </section>
+      <div>
+        <Navigation/>
+        <section className={styles.wrapper}>
+          <Logo hasText={false} logoClassName={styles.logo} />
+          <Heading text={'MY IMAGES'} />
+        </section>
+      </div>
     )
   }
 }
