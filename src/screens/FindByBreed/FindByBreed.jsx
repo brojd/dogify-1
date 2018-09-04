@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Heading from '../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import axios from 'axios';
 import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
-import Button from '../../common/components/Button/Button'
+import Button from '../../common/components/Button/Button';
+import LocalStorageInteractions from '../../common/components/LocalStorageInteractions/LocalStorageInteractions'
 
 class FindByBreed extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class FindByBreed extends Component {
                 <Button
                   text={'Add'}
                   buttonClassName={styles.button}
+                  onButtonClick={() => this.props.addImgLinkToLocalStorage(link)}
                 />
               </div>
             ))

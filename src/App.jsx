@@ -37,7 +37,7 @@ class App extends Component {
         <Navigation
           links={links}
           onLinkClick={this.handleLinkClick}
-          currentLinkIndex={this.state.clickedLinkId}
+          currentLinkId={this.state.clickedLinkId}
         />
         <div>
           {

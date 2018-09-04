@@ -16,9 +16,12 @@ class Navigation extends Component {
             this.props.links.map((linkElem) => (
                 <li
                   key={linkElem.id}
-                  className={linkElem.id === this.props.currentLinkIndex ? styles.activeLink : ''}
+                  className={linkElem.id === this.props.currentLinkId ? styles.activeLink : ''}
                 >
-                  <button onClick={() => this.props.onLinkClick(linkElem.id)}>
+                  <button
+                    onClick={() => this.props.onLinkClick(linkElem.id)}
+                    className={styles.button}
+                  >
                     {linkElem.link}
                   </button>
                 </li>
