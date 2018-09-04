@@ -46,7 +46,10 @@ class ChooseBreed extends Component {
             ))
           }
         </select>
-        <Button text={'Go'} onButtonClick={() => this.props.onGoClick(this.state.currentBreed)}/>
+        <Button
+          text={'Go'}
+          onButtonClick={() => this.props.onGoClick(this.state.currentBreed)}
+        />
       </div>
     )
   }

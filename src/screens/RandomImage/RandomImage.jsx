@@ -5,6 +5,7 @@ import axios from 'axios';
 import styles from './RandomImage.module.scss'
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button'
+import Navigation from '../../common/components/Navigation/Navigation'
 
 class RandomImage extends Component {
   constructor(props) {
@@ -26,19 +27,21 @@ class RandomImage extends Component {
 
   render() {
     return (
-      <section className={styles.wrapper}>
-        <Logo hasText={false} logoClassName={styles.logo} />
-        <Heading text={'RANDOM IMAGE'} />
-        <ChooseBreed onGoClick={this.onGoClick}/>
-        <div>
-          <img
-            src={this.state.randomImg}
-            alt={'dog-image'}
-            className={styles['dog-img']}
-          />
-          <Button text={'Add'}/>
-        </div>
-      </section>
+      <div>
+        <section className={styles.wrapper}>
+          <Logo hasText={false} logoClassName={styles.logo} />
+          <Heading text={'RANDOM IMAGE'} />
+          <ChooseBreed onGoClick={this.onGoClick}/>
+          <div>
+            <img
+              src={this.state.randomImg}
+              alt={'dog-image'}
+              className={styles['dog-img']}
+            />
+            <Button text={'Add'}/>
+          </div>
+        </section>
+      </div>
     )
   }
 }

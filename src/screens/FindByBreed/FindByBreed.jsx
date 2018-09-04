@@ -27,24 +27,29 @@ class FindByBreed extends Component {
 
   render() {
     return (
-      <section className={styles.wrapper}>
-        <Logo hasText={false} logoClassName={styles.logo} />
-        <Heading text={'FIND BY BREED'} />
-        <ChooseBreed onGoClick={this.onGoClick}/>
-        {
-          this.state.listOfLinks.map(link => (
-            <div className={styles['dog-element']}>
-              <img
-                src={link}
-                alt={'dog-image'}
-                key={link}
-                className={styles['dog-img']}
-              />
-              <Button text={'Add'} buttonClassName={styles.button} />
-            </div>
-          ))
-        }
-      </section>
+      <div>
+        <section className={styles.wrapper}>
+          <Logo hasText={false} logoClassName={styles.logo} />
+          <Heading text={'FIND BY BREED'} />
+          <ChooseBreed onGoClick={this.onGoClick}/>
+          {
+            this.state.listOfLinks.map(link => (
+              <div className={styles['dog-element']}>
+                <img
+                  src={link}
+                  alt={'dog-image'}
+                  key={link}
+                  className={styles['dog-img']}
+                />
+                <Button
+                  text={'Add'}
+                  buttonClassName={styles.button}
+                />
+              </div>
+            ))
+          }
+        </section>
+      </div>
     )
   }
 }
