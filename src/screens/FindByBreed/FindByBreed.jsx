@@ -5,7 +5,6 @@ import axios from 'axios';
 import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button'
-import Navigation from '../../common/Navigation/Navigation'
 
 class FindByBreed extends Component {
   constructor(props) {
@@ -29,7 +28,6 @@ class FindByBreed extends Component {
   render() {
     return (
       <div>
-        <Navigation/>
         <section className={styles.wrapper}>
           <Logo hasText={false} logoClassName={styles.logo} />
           <Heading text={'FIND BY BREED'} />
@@ -43,7 +41,10 @@ class FindByBreed extends Component {
                   key={link}
                   className={styles['dog-img']}
                 />
-                <Button text={'Add'} buttonClassName={styles.button} />
+                <Button
+                  text={'Add'}
+                  buttonClassName={styles.button}
+                />
               </div>
             ))
           }

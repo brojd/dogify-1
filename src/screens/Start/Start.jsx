@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Heading from './../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import styles from './Start.module.scss';
-import Navigation from '../../common/Navigation/Navigation'
 
 class Start extends Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class Start extends Component {
 
     return (
       <div>
-        <Navigation/>
         <section className={styles.start}>
           <Logo hasText={false} logoClassName={styles.logo}/>
           <Heading text={'START'}/>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Heading from '../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import styles from "../MyImages/MyImages.module.scss";
-import Navigation from '../../common/Navigation/Navigation'
+import Navigation from '../../common/components/Navigation/Navigation'
 
 class MyImages extends Component {
   constructor(props) {
@@ -12,7 +12,6 @@ class MyImages extends Component {
   render() {
     return (
       <div>
-        <Navigation/>
         <section className={styles.wrapper}>
           <Logo hasText={false} logoClassName={styles.logo} />
           <Heading text={'MY IMAGES'} />
