@@ -45,7 +45,7 @@ class FindByBreed extends Component {
                 <Button
                   text={'Add'}
                   buttonClassName={styles.button}
-                  onButtonClick={() => this.props.addImgLinkToLocalStorage(link)}
+                  onButtonClick={() => this.props.onAddClick(link)}
                 />
               </div>
             ))

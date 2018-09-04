@@ -7,13 +7,13 @@ class LocalStorageInteractions extends Component {
     this.addImgLinkToLocalStorage = this.addImgLinkToLocalStorage.bind(this);
   }
 
-  addImgLinkToLocalStorage(imgLink){
+  addImgLinkToLocalStorage(imgLink) {
     console.log(imgLink);
   }
 
   render () {
     return (
-      <Button addImgLinkToLocalStorage={this.addImgLinkToLocalStorage}/>
+      <Button onAddClick={this.addImgLinkToLocalStorage}/>
     )
   }
 }
