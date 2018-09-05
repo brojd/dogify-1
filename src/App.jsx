@@ -5,7 +5,6 @@ import Start from './screens/Start/Start'
 import FindByBreed from './screens/FindByBreed/FindByBreed'
 import RandomImage from './screens/RandomImage/RandomImage'
 import MyImages from './screens/MyImages/MyImages'
-import LocalStorageInteractions from './common/components/LocalStorageInteractions/LocalStorageInteractions'
 
 const links = [
   { id: 'start', link: 'Start', component: <Start />},

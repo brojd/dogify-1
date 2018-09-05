@@ -5,7 +5,7 @@ import axios from 'axios';
 import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button';
-import LocalStorageInteractions from '../../common/components/LocalStorageInteractions/LocalStorageInteractions'
+import { addImgLinkToLocalStorage } from '../../common/utils/localStorage'
 
 class FindByBreed extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class FindByBreed extends Component {
                 <Button
                   text={'Add'}
                   buttonClassName={styles.button}
-                  onButtonClick={() => this.props.onAddClick(link)}
+                  onButtonClick={() => addImgLinkToLocalStorage(link)}
                 />
               </div>
             ))

@@ -5,7 +5,7 @@ import axios from 'axios';
 import styles from './RandomImage.module.scss'
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button'
-import Navigation from '../../common/components/Navigation/Navigation'
+import { addImgLinkToLocalStorage } from '../../common/utils/localStorage'
 
 class RandomImage extends Component {
   constructor(props) {
@@ -38,7 +38,10 @@ class RandomImage extends Component {
               alt={'dog-image'}
               className={styles['dog-img']}
             />
-            <Button text={'Add'}/>
+            <Button
+              text={'Add'}
+              onButtonClick={() => addImgLinkToLocalStorage(this.state.randomImg)}
+            />
           </div>
         </section>
       </div>
