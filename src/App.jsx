@@ -5,10 +5,11 @@ import Start from './screens/Start/Start'
 import FindByBreed from './screens/FindByBreed/FindByBreed'
 import RandomImage from './screens/RandomImage/RandomImage'
 import MyImages from './screens/MyImages/MyImages'
+import { addImgLinkToLocalStorage } from "./common/utils/localStorage";
 
 const links = [
   { id: 'start', link: 'Start', component: <Start />},
-  { id: 'find-by-breed', link: 'Find by breed', component: <FindByBreed />},
+  { id: 'find-by-breed', link: 'Find by breed', component: <FindByBreed addImage={addImgLinkToLocalStorage} />},
   { id: 'random-img', link: 'Random image', component: <RandomImage />},
   { id: 'my-images', link: 'My images', component: <MyImages />}
 ];
@@ -23,8 +24,15 @@ class App extends Component {
     super(props);
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.state = {
+      listOfImages: [],
       clickedLinkId: links[0].id
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      listOfImages: JSON.parse(localStorage.getItem('images'))
+    })
   }
 
   handleLinkClick(id) {
@@ -44,7 +52,9 @@ class App extends Component {
             getComponentBasingOnId(this.state.clickedLinkId, links)
           }
         </div>
+
       </div>
+
     );
   }
 }

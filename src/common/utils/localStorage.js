@@ -17,6 +17,6 @@ export const deleteImageFromLocalStorage = (image) => {
 };
 
 export const getImageFromLocalStorage = (imgLink) => {
-  const images = getImagesFromLocalStorage();
+  const images = getImagesFromLocalStorage() || [];
   return images.find(img => img.link === imgLink);
 };
