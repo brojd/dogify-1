@@ -15,3 +15,8 @@ export const deleteImageFromLocalStorage = (image) => {
   const imagesWithoutDeletedOne = currentImages.filter(img => img.id !== image.id);
   localStorage.setItem('images', JSON.stringify(imagesWithoutDeletedOne))
 };
+
+export const getImageFromLocalStorage = (imgLink) => {
+  const images = getImagesFromLocalStorage();
+  return images.find(img => img.link === imgLink);
+};
