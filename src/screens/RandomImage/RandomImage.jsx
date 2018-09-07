@@ -41,7 +41,7 @@ class RandomImage extends Component {
             />
             <Button
               text={getImageFromLocalStorage(this.state.randomImg) ? 'Dogified' : 'Add'}
-              onButtonClick={() => addImgLinkToLocalStorage(this.state.randomImg)}
+              onButtonClick={() => addImgLinkToLocalStorage(this.state.randomImg, this)}
             />
           </div>
         </section>

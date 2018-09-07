@@ -7,6 +7,7 @@ import RandomImage from './screens/RandomImage/RandomImage'
 import MyImages from './screens/MyImages/MyImages'
 import { addImgLinkToLocalStorage } from "./common/utils/localStorage";
 
+
 const links = [
   { id: 'start', link: 'Start', component: <Start />},
   { id: 'find-by-breed', link: 'Find by breed', component: <FindByBreed addImage={addImgLinkToLocalStorage} />},
