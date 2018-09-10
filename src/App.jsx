@@ -20,18 +20,11 @@ class App extends Component {
       listOfImages: [],
       clickedLinkId: 'start'
     };
-    this.links = [
-      { id: 'start', link: 'Start', component: <Start />},
-      { id: 'find-by-breed', link: 'Find by breed', component: <FindByBreed onAddClick={this.addImage} />},
-      { id: 'random-img', link: 'Random image', component: <RandomImage onAddClick={this.addImage} />},
-      { id: 'my-images', link: 'My images', component: <MyImages onDeleteClick={this.deleteImage}
-                                                                 appState={this.state.listOfImages}/>}
-    ];
   }
 
   componentDidMount() {
     this.setState({ listOfImages: getImagesFromLocalStorage() })
-    console.log(this.state.listOfImages)
+
   }
 
   getComponentBasingOnId (currentId = '', links = []) {
@@ -56,16 +49,24 @@ class App extends Component {
 
   render() {
 
+    const links = [
+      { id: 'start', link: 'Start', component: <Start />},
+      { id: 'find-by-breed', link: 'Find by breed', component: <FindByBreed onAddClick={this.addImage} />},
+      { id: 'random-img', link: 'Random image', component: <RandomImage onAddClick={this.addImage} />},
+      { id: 'my-images', link: 'My images', component: <MyImages onDeleteClick={this.deleteImage}
+                                                                 listOfImages={this.state.listOfImages}/>}
+    ];
+
     return (
       <div className="App">
         <Navigation
-          links={this.links}
+          links={links}
           onLinkClick={this.handleLinkClick}
           currentLinkId={this.state.clickedLinkId}
         />
         <div>
           {
-            this.getComponentBasingOnId(this.state.clickedLinkId, this.links)
+            this.getComponentBasingOnId(this.state.clickedLinkId, links)
           }
         </div>
 

@@ -6,15 +6,11 @@ import Button from "../../common/components/Button/Button"
 
 class MyImages extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      listOfImages: []
-    }
+    super(props)
   }
 
   componentDidMount() {
-    this.setState({ listOfImages: this.props.appState });
-    console.log(this.state.listOfImages)
+    console.log(this.props.listOfImages)
   }
 
   render() {
@@ -27,7 +23,7 @@ class MyImages extends Component {
           />
           <Heading text={'MY IMAGES'} />
           {
-            this.state.listOfImages.map(imageElem =>(
+            this.props.listOfImages.map(imageElem =>(
               <div className={styles['dog-element']}>
                 <img
                   src={imageElem.link}
