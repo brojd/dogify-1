@@ -6,26 +6,20 @@ import Button from "../../common/components/Button/Button"
 
 class MyImages extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      listOfImages: []
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-      listOfImages: JSON.parse(localStorage.getItem('images'))
-    })
+    super(props)
   }
 
   render() {
     return (
       <div>
         <section className={styles.wrapper}>
-          <Logo hasText={false} logoClassName={styles.logo} />
+          <Logo
+            hasText={false}
+            logoClassName={styles.logo}
+          />
           <Heading text={'MY IMAGES'} />
           {
-            this.state.listOfImages.map(imageElem =>(
+            this.props.listOfImages.map(imageElem => (
               <div className={styles['dog-element']}>
                 <img
                   src={imageElem.link}
@@ -36,6 +30,7 @@ class MyImages extends Component {
                 <Button
                   text={'Delete'}
                   buttonClassName={styles.button}
+                  onButtonClick={() => this.props.onDeleteClick(imageElem)}
                 />
               </div>
             ))
