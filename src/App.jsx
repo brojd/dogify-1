@@ -33,14 +33,11 @@ class App extends Component {
   }
 
   addImage(newImage) {
-    addImgLinkToLocalStorage(newImage);
-    this.setState({ listOfImages: getImagesFromLocalStorage() })
-    console.log(this.state.listOfImages)
+    this.setState({ listOfImages: addImgLinkToLocalStorage(newImage) })
   }
 
   deleteImage(image) {
-    deleteImageFromLocalStorage(image);
-    this.setState({ listOfImages: getImagesFromLocalStorage() })
+    this.setState({ listOfImages: deleteImageFromLocalStorage(image) })
   }
 
   handleLinkClick(id) {

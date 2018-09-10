@@ -9,10 +9,6 @@ class MyImages extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    console.log(this.props.listOfImages)
-  }
-
   render() {
     return (
       <div>
@@ -23,7 +19,7 @@ class MyImages extends Component {
           />
           <Heading text={'MY IMAGES'} />
           {
-            this.props.listOfImages.map(imageElem =>(
+            this.props.listOfImages.map(imageElem => (
               <div className={styles['dog-element']}>
                 <img
                   src={imageElem.link}
