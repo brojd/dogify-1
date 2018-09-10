@@ -1,6 +1,7 @@
-const getImagesFromLocalStorage = () => JSON.parse(localStorage.getItem('images'));
+export const getImagesFromLocalStorage = () => JSON.parse(localStorage.getItem('images'));
 
-export const addImgLinkToLocalStorage = (link, state) => {
+
+export const addImgLinkToLocalStorage = (link) => {
   const imageObj = {
     id: (new Date()).getTime(),
     link
@@ -8,7 +9,6 @@ export const addImgLinkToLocalStorage = (link, state) => {
   const currentImages = getImagesFromLocalStorage();
   const imagesToSave = (currentImages || []).concat(imageObj);
   localStorage.setItem('images', JSON.stringify(imagesToSave));
-  updateAppState(state);
 };
 
 export const deleteImageFromLocalStorage = (image) => {
@@ -20,10 +20,4 @@ export const deleteImageFromLocalStorage = (image) => {
 export const getImageFromLocalStorage = (imgLink) => {
   const images = getImagesFromLocalStorage() || [];
   return images.find(img => img.link === imgLink);
-};
-
-const updateAppState = (state) => {
-  state.setState({
-    listOfImages: JSON.parse(localStorage.getItem('images'))
-  })
 };

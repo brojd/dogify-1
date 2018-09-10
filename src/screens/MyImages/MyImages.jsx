@@ -3,35 +3,28 @@ import Heading from '../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import styles from "../MyImages/MyImages.module.scss";
 import Button from "../../common/components/Button/Button"
-import { deleteImageFromLocalStorage } from "../../common/utils/localStorage";
 
 class MyImages extends Component {
   constructor(props) {
     super(props);
-    this.deleteImage = this.deleteImage.bind(this);
     this.state = {
       listOfImages: []
     }
   }
 
   componentDidMount() {
-    this.setState({
-      listOfImages: JSON.parse(localStorage.getItem('images'))
-    })
-  }
-
-  deleteImage(image) {
-    deleteImageFromLocalStorage(image);
-    this.setState({
-      listOfImages: JSON.parse(localStorage.getItem('images'))
-    })
+    this.setState({ listOfImages: this.props.appState });
+    console.log(this.state.listOfImages)
   }
 
   render() {
     return (
       <div>
         <section className={styles.wrapper}>
-          <Logo hasText={false} logoClassName={styles.logo} />
+          <Logo
+            hasText={false}
+            logoClassName={styles.logo}
+          />
           <Heading text={'MY IMAGES'} />
           {
             this.state.listOfImages.map(imageElem =>(
@@ -45,7 +38,7 @@ class MyImages extends Component {
                 <Button
                   text={'Delete'}
                   buttonClassName={styles.button}
-                  onButtonClick={() => this.deleteImage(imageElem)}
+                  onButtonClick={() => this.props.onDeleteClick(imageElem)}
                 />
               </div>
             ))
