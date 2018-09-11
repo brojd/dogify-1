@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Button from '../Button/Button'
+import styles from './ChooseBreed.module.scss'
 
 class ChooseBreed extends Component {
   constructor(props) {
@@ -30,9 +31,10 @@ class ChooseBreed extends Component {
   render() {
     return (
       <div>
-        <select 
+        <select
           onChange={this.onBreedChange}
           value={this.state.currentBreed}
+          className="ui selection dropdown marginRight"
         >
           <option>Choose Breed</option>
           {
@@ -42,13 +44,14 @@ class ChooseBreed extends Component {
                 key={Breed}
               >
                 {Breed}
-                </option>
+              </option>
             ))
           }
         </select>
         <Button
-          text={'Go'}
+          text={'DOGify'}
           onButtonClick={() => this.props.onGoClick(this.state.currentBreed)}
+          buttonClassName= {`ui button ${styles.marginLeft}`}
         />
       </div>
     )

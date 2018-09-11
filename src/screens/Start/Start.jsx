@@ -11,8 +11,7 @@ class Start extends Component {
   render() {
 
     return (
-      <div>
-        <section className={styles.start}>
+        <containter className={styles.start}>
           <Logo hasText={false} logoClassName={styles.logo}/>
           <Heading text={'START'}/>
           <p>
@@ -22,8 +21,7 @@ class Start extends Component {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
             est laborum
           </p>
-        </section>
-      </div>
+        </containter>
     )
   }
 

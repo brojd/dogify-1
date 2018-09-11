@@ -11,23 +11,19 @@ class Navigation extends Component {
     return (
       <nav className={styles.navigation}>
         <Logo hasText={true} logoClassName={styles.logo}/>
-        <ul>
+        <div className="ui secondary vertical menu">
           {
             this.props.links.map((linkElem) => (
-                <li
-                  key={linkElem.id}
-                  className={linkElem.id === this.props.currentLinkId ? styles.activeLink : ''}
-                >
-                  <button
-                    onClick={() => this.props.onLinkClick(linkElem.id)}
-                    className={styles.button}
-                  >
-                    {linkElem.link}
-                  </button>
-                </li>
+              <a
+                key={linkElem.id}
+                className={linkElem.id === this.props.currentLinkId ? "active item" : "item"}
+                onClick={() => this.props.onLinkClick(linkElem.id)}
+              >
+                {linkElem.link}
+              </a>
             ))
           }
-        </ul>
+        </div>
       </nav>
     )
   }

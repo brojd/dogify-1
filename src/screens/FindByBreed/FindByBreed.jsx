@@ -44,7 +44,7 @@ class FindByBreed extends Component {
                 />
                 <Button
                   text={getImageFromLocalStorage(link) ? 'Dogified' : 'Add'}
-                  buttonClassName={styles.button}
+                  buttonClassName="ui button"
                   onButtonClick={() => this.props.onAddClick(link)}
                 />
               </div>
