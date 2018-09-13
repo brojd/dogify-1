@@ -15,7 +15,7 @@ class Start extends Component {
         <div className={styles.wrapper}>
           <Heading text={'Woof Woof Welcome'}/>
           <p className={styles['welcome-note']}>
-            Ready to dig into the world full of dogs?
+            Ready to dig into the world full of dogs? Let's dogify!
             <img
               src={welcomeDog}
               className={styles.dog}

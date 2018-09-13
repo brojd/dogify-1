@@ -6,15 +6,17 @@
 }
 
 .welcome-note {
-  margin-top: 70px;
+  margin-top: 40px;
   font: {
     family: Monospace;
     size: 2rem;
   }
+  display: block;
 }
 
 .dog {
-  width: 50%;
-  margin-top: 30px;
+  width: 40%;
+  margin: 30px auto;
+  display: block;
 }
 
