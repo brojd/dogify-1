@@ -13,11 +13,7 @@ class MyImages extends Component {
     return (
       <div>
         <section className={styles.wrapper}>
-          <Logo
-            hasText={false}
-            logoClassName={styles.logo}
-          />
-          <Heading text={'MY IMAGES'} />
+          <Heading text={'My images'} />
           {
             this.props.listOfImages.map(imageElem => (
               <div className={styles['dog-element']}>
@@ -29,7 +25,7 @@ class MyImages extends Component {
                 />
                 <Button
                   text={'Delete'}
-                  buttonClassName={styles.button}
+                  buttonClassName={styles['delete-button']}
                   onButtonClick={() => this.props.onDeleteClick(imageElem)}
                 />
               </div>

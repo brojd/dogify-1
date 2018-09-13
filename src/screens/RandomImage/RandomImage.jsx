@@ -12,8 +12,9 @@ class RandomImage extends Component {
     super(props);
     this.onGoClick = this.onGoClick.bind(this);
     this.state = {
-      randomImg: []
+      randomImg: ''
     };
+    console.log(this.state.randomImg)
   }
 
   onGoClick(breed) {
@@ -27,23 +28,21 @@ class RandomImage extends Component {
 
   render() {
     return (
-      <div>
-        <section className={styles.wrapper}>
-          <Logo hasText={false} logoClassName={styles.logo} />
-          <Heading text={'RANDOM IMAGE'} />
-          <ChooseBreed onGoClick={this.onGoClick}/>
-          <div>
-            <img
-              src={this.state.randomImg}
-              alt={'dog-image'}
-              className={styles['dog-img']}
-            />
-            <Button
-              text={getImageFromLocalStorage(this.state.randomImg) ? 'Dogified' : 'Add'}
-              onButtonClick={() => this.props.onAddClick(this.state.randomImg)}
-            />
-          </div>
-        </section>
+      <div className={styles.wrapper}>
+        <Heading text={'Wanna see some dogs?'} />
+        <ChooseBreed onGoClick={this.onGoClick}/>
+        <div className={this.state.randomImg === '' ? styles['no-display'] : styles['dog-element']}>
+          <img
+            src={this.state.randomImg}
+            alt={'dog-image'}
+            className={styles['dog-img']}
+          />
+          <Button
+            text={getImageFromLocalStorage(this.state.randomImg) ? 'Dogified' : 'Add Me'}
+            onButtonClick={() => this.props.onAddClick(this.state.randomImg)}
+            buttonClassName={styles['add-button']}
+          />
+        </div>
       </div>
     )
   }

@@ -1,4 +1,33 @@
-.marginLeft {
-  margin-left: 15px !important;
-  display: block
+.select {
+  margin: 15px 15px 0 0;
+  width: 300px;
+  -webkit-appearance: none;
+  padding: 10px;
+  background: #ffffff;
+  font-size: 1.2em;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.dogify-button {
+  display: inline-block;
+  margin: 10px auto;
+  font: {
+    family: 'Lato', 'Arial', 'sans-serif';
+    size: 1rem;
+    weight: bold;
+  }
+  cursor: pointer;
+  padding: 12px;
+  background: #F7DC6F;
+  border: none;
+  border-radius: 4px;
+  &:focus {
+  outline: 0;
+  }
+  &:hover {
+    background: #17202A;
+    color: #F7DC6F;
+  }
 }

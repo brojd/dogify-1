@@ -34,24 +34,24 @@ class ChooseBreed extends Component {
         <select
           onChange={this.onBreedChange}
           value={this.state.currentBreed}
-          className="ui selection dropdown marginRight"
+          className={styles.select}
         >
-          <option>Choose Breed</option>
+          <option className="item">Choose Breed</option>
           {
             this.state.listOfBreeds.map(Breed => (
               <option
                 value={Breed}
                 key={Breed}
+                className="item"
               >
-                {Breed}
-              </option>
+                {Breed}</option>
             ))
           }
         </select>
         <Button
           text={'DOGify'}
           onButtonClick={() => this.props.onGoClick(this.state.currentBreed)}
-          buttonClassName= {`ui button ${styles.marginLeft}`}
+          buttonClassName= {styles['dogify-button']}
         />
       </div>
     )

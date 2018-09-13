@@ -1,11 +1,20 @@
-.start {
+.wrapper {
   float: right;
   width: 69%;
-  padding: 50px;
+  padding: 0 100px;
+  text-align: center;
 }
 
-.logo {
-  width: 65px;
-  display: block;
-  margin-left: auto;
+.welcome-note {
+  margin-top: 70px;
+  font: {
+    family: Monospace;
+    size: 2rem;
+  }
 }
+
+.dog {
+  width: 50%;
+  margin-top: 30px;
+}
+

@@ -1,8 +1,23 @@
 .heading {
   text-align: center;
-  color: navy;
   font: {
-    family: Arial, Helvetica, sans-serif;
-    size: 3rem;
+    family: GoodDog, Arial, sans-serif;
+    size: 5rem;
   }
+  letter-spacing: 10px;
+  display: inline-block;
+}
+
+.logo-img {
+  width: 65px;
+}
+
+.logo {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 15px auto;
 }

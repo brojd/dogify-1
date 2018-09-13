@@ -28,29 +28,26 @@ class FindByBreed extends Component {
 
   render() {
     return (
-      <div>
-        <section className={styles.wrapper}>
-          <Logo hasText={false} logoClassName={styles.logo} />
-          <Heading text={'FIND BY BREED'} />
-          <ChooseBreed onGoClick={this.onGoClick}/>
-          {
-            this.state.listOfLinks.map(link => (
-              <div className={styles['dog-element']}>
-                <img
-                  src={link}
-                  alt={'dog-image'}
-                  key={link}
-                  className={styles['dog-img']}
-                />
-                <Button
-                  text={getImageFromLocalStorage(link) ? 'Dogified' : 'Add'}
-                  buttonClassName="ui button"
-                  onButtonClick={() => this.props.onAddClick(link)}
-                />
-              </div>
-            ))
-          }
-        </section>
+      <div className={styles.wrapper}>
+        <Heading text={'Find your breed'} />
+        <ChooseBreed onGoClick={this.onGoClick}/>
+        {
+          this.state.listOfLinks.map(link => (
+            <div className={styles['dog-element']}>
+              <img
+                src={link}
+                alt={'dog-image'}
+                key={link}
+                className={styles['dog-img']}
+              />
+              <Button
+                text={getImageFromLocalStorage(link) ? 'DOGified' : 'Add Me'}
+                buttonClassName={styles['add-button']}
+                onButtonClick={() => this.props.onAddClick(link)}
+              />
+            </div>
+          ))
+        }
       </div>
     )
   }
