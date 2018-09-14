@@ -6,6 +6,7 @@ import styles from './RandomImage.module.scss'
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button'
 import { getImageFromLocalStorage } from "../../common/utils/localStorage";
+import { buttonsTexts } from "../../common/config/dict";
 
 class RandomImage extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class RandomImage extends Component {
             className={styles['dog-img']}
           />
           <Button
-            text={getImageFromLocalStorage(this.state.randomImg) ? 'Dogified' : 'Add Me'}
+            text={getImageFromLocalStorage(this.state.randomImg) ? buttonsTexts.dogifiedButtonText : buttonsTexts.addButtonText}
             onButtonClick={() => this.props.onAddClick(this.state.randomImg)}
             buttonClassName={styles['add-button']}
           />

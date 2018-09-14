@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Heading from './../../common/components/Heading/Heading';
-import Logo from '../../common/components/Logo/Logo';
 import styles from './Start.module.scss';
 import welcomeDog from '../../common/images/welcome-dog.jpg'
+import { startTexts } from '../../common/config/dict'
 
 class Start extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Start extends Component {
         <div className={styles.wrapper}>
           <Heading text={'Woof Woof Welcome'}/>
           <p className={styles['welcome-note']}>
-            Ready to dig into the world full of dogs? Let's dogify!
+            {startTexts.welcomeNote}
             <img
               src={welcomeDog}
               className={styles.dog}

@@ -3,6 +3,7 @@ import Heading from '../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import styles from "../MyImages/MyImages.module.scss";
 import Button from "../../common/components/Button/Button"
+import { buttonsTexts} from "../../common/config/dict";
 
 class MyImages extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class MyImages extends Component {
                   className={styles['dog-img']}
                 />
                 <Button
-                  text={'Delete'}
+                  text={buttonsTexts.deleteButtonText}
                   buttonClassName={styles['delete-button']}
                   onButtonClick={() => this.props.onDeleteClick(imageElem)}
                 />

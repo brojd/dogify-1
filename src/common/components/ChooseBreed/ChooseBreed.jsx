@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Button from '../Button/Button'
 import styles from './ChooseBreed.module.scss'
+import { buttonsTexts } from '../../config/dict'
 
 class ChooseBreed extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class ChooseBreed extends Component {
           }
         </select>
         <Button
-          text={'DOGify'}
+          text={buttonsTexts.dogifyButtonText}
           onButtonClick={() => this.props.onGoClick(this.state.currentBreed)}
           buttonClassName= {styles['dogify-button']}
         />

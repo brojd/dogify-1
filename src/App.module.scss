@@ -4,5 +4,9 @@
 
 @font-face {
     font-family: GoodDog;
-    src: url("./fonts/good-dog/GoodDog.ttf") format("opentype");
+    src: url("./common/fonts/good-dog/GoodDog.ttf") format("opentype");
+}
+
+body {
+    font-family: Monospace, "Arial", "sans-serif";
 }

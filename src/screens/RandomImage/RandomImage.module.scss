@@ -28,6 +28,13 @@
   background: #F7DC6F;
   border: none;
   border-radius: 4px;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background: #17202A;
+    color: #F7DC6F;
+  }
 }
 
 .dog-element {
