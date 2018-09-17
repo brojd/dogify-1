@@ -47,4 +47,15 @@
 
 .invisible {
   visibility: hidden;
+  display: none;
+}
+
+.img-no-label {
+  background: #17202A;
+  color: #F7DC6F;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  display: inline;
+  padding: 3px 5px;
+  margin-left: 10px;
 }

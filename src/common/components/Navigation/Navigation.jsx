@@ -6,11 +6,6 @@ import { getImagesFromLocalStorage } from "../../utils/localStorage";
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.state = {imagesNo: 0};
-  }
-
-  componentDidMount () {
-    this.setState({imagesNo: getImagesFromLocalStorage().length})
   }
 
   render() {
@@ -26,8 +21,8 @@ class Navigation extends Component {
                 onClick={() => this.props.onLinkClick(linkElem.id)}
               >
                 {linkElem.link}
-                <div className={linkElem.id === 'my-images' ? 'ui teal label' : styles.invisible}>
-                  {this.state.imagesNo}
+                <div className={linkElem.id === 'my-images' ? styles['img-no-label'] : styles.invisible}>
+                  {this.props.listOfImages.length}
                 </div>
               </li>
             ))
