@@ -16,7 +16,7 @@ class Pagination extends Component {
 
   handlePageClick(page) {
     const leftBoundary = (page - 1) * this.props.nbOfItemsToShow;
-    const rightBoundary = leftBoundary + this.props.nbOfItemsToShow - 1;
+    const rightBoundary = leftBoundary + this.props.nbOfItemsToShow;
     const newBoundaries = [leftBoundary, rightBoundary];
     this.props.onPageClick(newBoundaries);
     this.setState({ indexOfActivePage: page - 1 });
