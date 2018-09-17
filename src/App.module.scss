@@ -1,5 +1,5 @@
 .command {
-    margin: 40px 0px 50px 0;
+    margin: 40px 0 50px 0;
 }
 
 @font-face {
@@ -8,5 +8,9 @@
 }
 
 body {
-    font-family: Monospace, "Arial", "sans-serif";
+    font-family: 'Monospace', 'Arial', 'sans-serif';
+}
+
+button {
+  font-family: Monospace
 }

@@ -3,7 +3,7 @@ import Heading from '../../common/components/Heading/Heading';
 import Logo from '../../common/components/Logo/Logo';
 import styles from "../MyImages/MyImages.module.scss";
 import Button from "../../common/components/Button/Button"
-import { buttonsTexts} from "../../common/config/dict";
+import { buttonsTexts, headingTexts } from "../../common/config/dict";
 
 class MyImages extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class MyImages extends Component {
     return (
       <div>
         <section className={styles.wrapper}>
-          <Heading text={'My images'} />
+          <Heading text={headingTexts.myImages} />
           {
             this.props.listOfImages.map(imageElem => (
               <div className={styles['dog-element']}>

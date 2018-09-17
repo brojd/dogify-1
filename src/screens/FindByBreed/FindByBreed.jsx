@@ -6,7 +6,7 @@ import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button';
 import { getImageFromLocalStorage } from '../../common/utils/localStorage';
-import { buttonsTexts} from "../../common/config/dict";
+import { buttonsTexts, headingTexts } from "../../common/config/dict";
 
 class FindByBreed extends Component {
   constructor(props) {
@@ -27,10 +27,14 @@ class FindByBreed extends Component {
       })
   }
 
+  handleAddButtonClick(imgLink) {
+    if(!getImageFromLocalStorage(imgLink)) this.props.onAddClick(imgLink)
+  }
+
   render() {
     return (
       <div className={styles.wrapper}>
-        <Heading text={'Find your breed'} />
+        <Heading text={headingTexts.findByBreed} />
         <ChooseBreed onGoClick={this.onGoClick}/>
         {
           this.state.listOfLinks.map(link => (
@@ -44,7 +48,7 @@ class FindByBreed extends Component {
               <Button
                 text={getImageFromLocalStorage(link) ? buttonsTexts.dogifiedButtonText : buttonsTexts.addButtonText}
                 buttonClassName={styles['add-button']}
-                onButtonClick={() => this.props.onAddClick(link)}
+                onButtonClick={() => this.handleAddButtonClick(link)}
               />
             </div>
           ))
