@@ -7,24 +7,32 @@ import Button from '../../common/components/Button/Button';
 import { getImageFromLocalStorage } from '../../common/utils/localStorage';
 import { buttonsTexts, headingTexts } from "../../common/config/dict";
 import Wait from "../../common/components/Wait/Wait";
+import Pagination from "../../common/components/Pagination/Pagination";
+
+const NB_OF_ITEMS_TO_SHOW = 5;
 
 class FindByBreed extends Component {
   constructor(props) {
     super(props);
     this.onGoClick = this.onGoClick.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
     this.state = {
       listOfLinks: [],
-      isLoading: false
+      isLoading: false,
+      boundaries: [0, NB_OF_ITEMS_TO_SHOW]
     };
+  }
+
+  handlePageClick(newBoundaries) {
+    this.setState({ boundaries: newBoundaries });
   }
 
   onGoClick(breed) {
     this.setState({ isLoading: true });
     axios.get(`https://dog.ceo/api/breed/${breed}/images`)
       .then(res => {
-        const firstThirtyDogs = res.data.message.slice(0, 30);
         this.setState({
-          listOfLinks: firstThirtyDogs,
+          listOfLinks: res.data.message,
           isLoading: false
         })
       })
@@ -35,28 +43,40 @@ class FindByBreed extends Component {
   }
 
   render() {
+    const imagesToShow = this.state.listOfLinks.slice(this.state.boundaries[0], this.state.boundaries[1])
+    
     return (
       <div className={styles.wrapper}>
         <Heading text={headingTexts.findByBreed} />
         <ChooseBreed onGoClick={this.onGoClick}/>
         <Wait isWaiting={this.state.isLoading}>
-          {
-            this.state.listOfLinks.map(link => (
-              <div className={styles['dog-element']}>
-                <img
-                  src={link}
-                  alt={'dog-image'}
+          <div>
+            {
+              imagesToShow.map(link => (
+                <div
                   key={link}
-                  className={styles['dog-img']}
-                />
-                <Button
-                  text={getImageFromLocalStorage(link) ? buttonsTexts.dogifiedButtonText : buttonsTexts.addButtonText}
-                  buttonClassName={styles['add-button']}
-                  onButtonClick={() => this.handleAddButtonClick(link)}
-                />
-              </div>
-            ))
-          }
+                  className={styles['dog-element']}
+                >
+                  <img
+                    src={link}
+                    alt={'dog-image'}
+                    key={link}
+                    className={styles['dog-img']}
+                  />
+                  <Button
+                    text={getImageFromLocalStorage(link) ? buttonsTexts.dogifiedButtonText : buttonsTexts.addButtonText}
+                    buttonClassName={styles['add-button']}
+                    onButtonClick={() => this.handleAddButtonClick(link)}
+                  />
+                </div>
+              ))
+            }
+            <Pagination
+              nbOfItemsToShow={NB_OF_ITEMS_TO_SHOW}
+              totalNbOfItems={this.state.listOfLinks.length}
+              onPageClick={this.handlePageClick}
+            />
+          </div>
         </Wait>
       </div>
     )
