@@ -19,7 +19,8 @@ class FindByBreed extends Component {
     this.state = {
       listOfLinks: [],
       isLoading: false,
-      boundaries: [0, NB_OF_ITEMS_TO_SHOW]
+      boundaries: [0, NB_OF_ITEMS_TO_SHOW],
+      clickedLink: ''
     };
   }
 
@@ -39,7 +40,14 @@ class FindByBreed extends Component {
   }
 
   handleAddButtonClick(imgLink) {
-    if(!getImageFromLocalStorage(imgLink)) this.props.onAddClick(imgLink)
+    if (!getImageFromLocalStorage(imgLink)) {
+      this.props.onAddClick(imgLink);
+      this.setState({ clickedLink: imgLink });
+      setTimeout(
+        () => this.setState({ clickedLink: '' }),
+        2000
+      )
+    }
   }
 
   render() {
@@ -50,19 +58,29 @@ class FindByBreed extends Component {
         <Heading text={headingTexts.findByBreed} />
         <ChooseBreed onGoClick={this.onGoClick}/>
         <Wait isWaiting={this.state.isLoading}>
-          <div>
+          <div className={styles['dogs-wrapper']}>
             {
               imagesToShow.map(link => (
                 <div
                   key={link}
                   className={styles['dog-element']}
                 >
-                  <img
-                    src={link}
-                    alt={'dog-image'}
-                    key={link}
-                    className={styles['dog-img']}
-                  />
+                  <div className={styles['img-wrapper']}>
+                    <img
+                      src={link}
+                      alt={'dog-image'}
+                      key={link}
+                      className={styles['dog-img']}
+                    />
+                    <div className={
+                      `${link === this.state.clickedLink ? styles['add-img-back--visible'] : styles['add-img-back--hidden']} ${styles['add-img-back']}`
+                    }>
+                      {
+                        link === this.state.clickedLink &&
+                        <span className={styles['img-added']}>Image added</span>  
+                      }
+                    </div>
+                  </div>
                   <Button
                     text={getImageFromLocalStorage(link) ? buttonsTexts.dogifiedButtonText : buttonsTexts.addButtonText}
                     buttonClassName={styles['add-button']}

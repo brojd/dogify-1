@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Navigation.module.scss'
 import Logo from '../Logo/Logo';
-import { getImagesFromLocalStorage } from "../../utils/localStorage";
 
 class Navigation extends Component {
   constructor(props) {

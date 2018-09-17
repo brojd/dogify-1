@@ -35,9 +35,11 @@
   margin: 30px 0;
   padding: 10px 0;
   border-radius: 5px;
-  &:hover {
-    background: white;
-  }
+  transition: background 0.6s;
+}
+
+.item:hover {
+  background: rgba(white, 0.7);
 }
 
 .active-item {
