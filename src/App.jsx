@@ -57,7 +57,7 @@ class App extends Component {
       { id: 'find-by-breed', link: menuTexts.findByBreed, component: <FindByBreed onAddClick={this.handleAddButtonClick} />},
       { id: 'random-img', link: menuTexts.randomImage, component: <RandomImage onAddClick={this.handleAddButtonClick} />},
       { id: 'my-images', link: menuTexts.myImages, component: <MyImages onDeleteClick={this.deleteImage}
-                                                                 listOfImages={this.state.listOfImages}/>}
+                                                                        listOfImages={this.state.listOfImages}/>}
     ];
 
     return (
@@ -66,6 +66,7 @@ class App extends Component {
           links={links}
           onLinkClick={this.handleLinkClick}
           currentLinkId={this.state.clickedLinkId}
+          listOfImages={this.state.listOfImages}
         />
         <div>
           {

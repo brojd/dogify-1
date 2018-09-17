@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './Navigation.module.scss'
 import Logo from '../Logo/Logo';
+import { getImagesFromLocalStorage } from "../../utils/localStorage";
 
 class Navigation extends Component {
   constructor(props) {
@@ -20,6 +21,9 @@ class Navigation extends Component {
                 onClick={() => this.props.onLinkClick(linkElem.id)}
               >
                 {linkElem.link}
+                <div className={linkElem.id === 'my-images' ? styles['img-no-label'] : styles.invisible}>
+                  {this.props.listOfImages.length}
+                </div>
               </li>
             ))
           }
