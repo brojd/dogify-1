@@ -22,3 +22,5 @@ export const buttonsTexts = {
   dogifiedButtonText: 'DOGified',
   deleteButtonText: 'Delete'
 };
+
+export const loading = 'Loading...';

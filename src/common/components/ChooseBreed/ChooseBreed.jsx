@@ -10,15 +10,18 @@ class ChooseBreed extends Component {
     this.onBreedChange = this.onBreedChange.bind(this);
     this.state = {
       listOfBreeds: [],
-      currentBreed: ''
+      currentBreed: '',
+      isLoading: false
     }
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     axios.get('https://dog.ceo/api/breeds/list/all')
       .then(res => {
         this.setState({
-          listOfBreeds: Object.keys(res.data.message)
+          listOfBreeds: Object.keys(res.data.message),
+          isLoading: false
         });
       });
   }
@@ -37,7 +40,9 @@ class ChooseBreed extends Component {
           value={this.state.currentBreed}
           className={styles.select}
         >
-          <option className="item">Choose Breed</option>
+          <option className="item">
+            {this.state.isLoading ? 'Waiting for breeds' : 'Choose Breed'}
+          </option>
           {
             this.state.listOfBreeds.map(Breed => (
               <option
