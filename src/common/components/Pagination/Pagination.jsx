@@ -7,11 +7,15 @@ class Pagination extends Component {
   constructor(props) {
     super(props);
     this.handlePageClick = this.handlePageClick.bind(this);
-    this.nbOfPages = Math.ceil(this.props.totalNbOfItems / this.props.nbOfItemsToShow);
-    this.pages = [...Array(this.nbOfPages).keys()].map(elem => elem + 1);
     this.state = {
       indexOfActivePage: 0
     };
+  }
+  
+  componentWillReceiveProps(newProps) {
+    if (this.state.indexOfActivePage >= (newProps.totalNbOfItems / newProps.nbOfItemsToShow)) {
+      this.handlePageClick(this.state.indexOfActivePage)
+    }
   }
 
   handlePageClick(page) {
@@ -23,9 +27,11 @@ class Pagination extends Component {
   }
 
   render() {
+    const nbOfPages = Math.ceil(this.props.totalNbOfItems / this.props.nbOfItemsToShow);
+    const pages = [...Array(nbOfPages).keys()].map(elem => elem + 1);
     const shouldShowPagination = this.props.nbOfItemsToShow < this.props.totalNbOfItems;
     const showLeftArrow = this.state.indexOfActivePage !== 0;
-    const showRightArrow = this.state.indexOfActivePage + 1 < this.nbOfPages;
+    const showRightArrow = this.state.indexOfActivePage + 1 < nbOfPages;
     
     return (
       shouldShowPagination && (
@@ -43,7 +49,7 @@ class Pagination extends Component {
             </button>
           }
           {
-            this.pages.map((page, index) => (
+            pages.map((page, index) => (
               index > this.state.indexOfActivePage + 1 || index < this.state.indexOfActivePage - 1
                 ? <span key={page}>{generateNullOrDots(true)}</span>
                 : (
@@ -64,8 +70,8 @@ class Pagination extends Component {
             </button>
           }
           <button
-            key={this.nbOfPages}
-            onClick={() => this.handlePageClick(this.nbOfPages)}
+            key={nbOfPages}
+            onClick={() => this.handlePageClick(nbOfPages)}
           >
             {'>>'}
           </button>
