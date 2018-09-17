@@ -1,3 +1,16 @@
 .command {
-    margin: 40px 0px 50px 0;
+    margin: 40px 0 50px 0;
+}
+
+@font-face {
+    font-family: GoodDog;
+    src: url("./common/fonts/good-dog/GoodDog.ttf") format("opentype");
+}
+
+body {
+    font-family: 'Monospace', 'Arial', 'sans-serif';
+}
+
+button {
+  font-family: Monospace
 }

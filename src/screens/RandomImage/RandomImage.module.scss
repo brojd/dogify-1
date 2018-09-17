@@ -1,5 +1,7 @@
 .wrapper {
   text-align: center;
+  float: right;
+  width: 69%;
 }
 
 .logo {
@@ -8,6 +10,36 @@
   margin-left: auto;
 }
 
-.dog-image {
-  width: 150px;
+.dog-img {
+  display: block;
+  margin: auto;
+}
+
+.add-button {
+  display: block;
+  margin: 10px auto;
+  font: {
+    size: 1rem;
+    weight: bold;
+  }
+  cursor: pointer;
+  padding: 10px;
+  background: #F7DC6F;
+  border: none;
+  border-radius: 4px;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background: #17202A;
+    color: #F7DC6F;
+  }
+}
+
+.dog-element {
+  margin: 20px auto 0;
+  display: block;
+}
+.no-display {
+  display: none;
 }

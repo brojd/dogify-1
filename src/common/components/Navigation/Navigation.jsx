@@ -11,20 +11,16 @@ class Navigation extends Component {
     return (
       <nav className={styles.navigation}>
         <Logo hasText={true} logoClassName={styles.logo}/>
-        <ul>
+        <ul className={styles.menu}>
           {
             this.props.links.map((linkElem) => (
-                <li
-                  key={linkElem.id}
-                  className={linkElem.id === this.props.currentLinkId ? styles.activeLink : ''}
-                >
-                  <button
-                    onClick={() => this.props.onLinkClick(linkElem.id)}
-                    className={styles.button}
-                  >
-                    {linkElem.link}
-                  </button>
-                </li>
+              <li
+                key={linkElem.id}
+                className={linkElem.id === this.props.currentLinkId ? styles['active-item'] : styles.item}
+                onClick={() => this.props.onLinkClick(linkElem.id)}
+              >
+                {linkElem.link}
+              </li>
             ))
           }
         </ul>

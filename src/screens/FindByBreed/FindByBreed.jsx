@@ -6,6 +6,7 @@ import styles from './FindByBreed.module.scss';
 import ChooseBreed from '../../common/components/ChooseBreed/ChooseBreed'
 import Button from '../../common/components/Button/Button';
 import { getImageFromLocalStorage } from '../../common/utils/localStorage';
+import { buttonsTexts, headingTexts } from "../../common/config/dict";
 
 class FindByBreed extends Component {
   constructor(props) {
@@ -26,31 +27,32 @@ class FindByBreed extends Component {
       })
   }
 
+  handleAddButtonClick(imgLink) {
+    if(!getImageFromLocalStorage(imgLink)) this.props.onAddClick(imgLink)
+  }
+
   render() {
     return (
-      <div>
-        <section className={styles.wrapper}>
-          <Logo hasText={false} logoClassName={styles.logo} />
-          <Heading text={'FIND BY BREED'} />
-          <ChooseBreed onGoClick={this.onGoClick}/>
-          {
-            this.state.listOfLinks.map(link => (
-              <div className={styles['dog-element']}>
-                <img
-                  src={link}
-                  alt={'dog-image'}
-                  key={link}
-                  className={styles['dog-img']}
-                />
-                <Button
-                  text={getImageFromLocalStorage(link) ? 'Dogified' : 'Add'}
-                  buttonClassName={styles.button}
-                  onButtonClick={() => this.props.onAddClick(link)}
-                />
-              </div>
-            ))
-          }
-        </section>
+      <div className={styles.wrapper}>
+        <Heading text={headingTexts.findByBreed} />
+        <ChooseBreed onGoClick={this.onGoClick}/>
+        {
+          this.state.listOfLinks.map(link => (
+            <div className={styles['dog-element']}>
+              <img
+                src={link}
+                alt={'dog-image'}
+                key={link}
+                className={styles['dog-img']}
+              />
+              <Button
+                text={getImageFromLocalStorage(link) ? buttonsTexts.dogifiedButtonText : buttonsTexts.addButtonText}
+                buttonClassName={styles['add-button']}
+                onButtonClick={() => this.handleAddButtonClick(link)}
+              />
+            </div>
+          ))
+        }
       </div>
     )
   }

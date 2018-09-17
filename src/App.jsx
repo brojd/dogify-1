@@ -5,9 +5,10 @@ import Start from './screens/Start/Start'
 import FindByBreed from './screens/FindByBreed/FindByBreed'
 import RandomImage from './screens/RandomImage/RandomImage'
 import MyImages from './screens/MyImages/MyImages'
-import { getImagesFromLocalStorage } from "./common/utils/localStorage";
+import {getImageFromLocalStorage, getImagesFromLocalStorage} from "./common/utils/localStorage";
 import { addImgLinkToLocalStorage } from "./common/utils/localStorage";
 import { deleteImageFromLocalStorage} from "./common/utils/localStorage";
+import { menuTexts } from "./common/config/dict";
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
     this.getComponentBasingOnId = this.getComponentBasingOnId.bind(this);
     this.addImage = this.addImage.bind(this);
     this.deleteImage = this.deleteImage.bind(this);
+    this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
     this.state = {
       listOfImages: [],
       clickedLinkId: 'start'
@@ -44,13 +46,17 @@ class App extends Component {
     this.setState({ clickedLinkId: id });
   }
 
+  handleAddButtonClick(imgLink) {
+    if(!getImageFromLocalStorage(imgLink)) this.addImage(imgLink)
+  }
+
   render() {
 
     const links = [
-      { id: 'start', link: 'Start', component: <Start />},
-      { id: 'find-by-breed', link: 'Find by breed', component: <FindByBreed onAddClick={this.addImage} />},
-      { id: 'random-img', link: 'Random image', component: <RandomImage onAddClick={this.addImage} />},
-      { id: 'my-images', link: 'My images', component: <MyImages onDeleteClick={this.deleteImage}
+      { id: 'start', link: menuTexts.start, component: <Start />},
+      { id: 'find-by-breed', link: menuTexts.findByBreed, component: <FindByBreed onAddClick={this.handleAddButtonClick} />},
+      { id: 'random-img', link: menuTexts.randomImage, component: <RandomImage onAddClick={this.handleAddButtonClick} />},
+      { id: 'my-images', link: menuTexts.myImages, component: <MyImages onDeleteClick={this.deleteImage}
                                                                  listOfImages={this.state.listOfImages}/>}
     ];
 

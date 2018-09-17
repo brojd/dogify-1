@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Heading from './../../common/components/Heading/Heading';
-import Logo from '../../common/components/Logo/Logo';
 import styles from './Start.module.scss';
+import welcomeDog from '../../common/images/welcome-dog.jpg'
+import { startTexts, headingTexts } from '../../common/config/dict'
 
 class Start extends Component {
   constructor(props) {
@@ -11,19 +12,16 @@ class Start extends Component {
   render() {
 
     return (
-      <div>
-        <section className={styles.start}>
-          <Logo hasText={false} logoClassName={styles.logo}/>
-          <Heading text={'START'}/>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum
+        <div className={styles.wrapper}>
+          <Heading text={headingTexts.start}/>
+          <p className={styles['welcome-note']}>
+            {startTexts.welcomeNote}
+            <img
+              src={welcomeDog}
+              className={styles.dog}
+            />
           </p>
-        </section>
-      </div>
+        </div>
     )
   }
 

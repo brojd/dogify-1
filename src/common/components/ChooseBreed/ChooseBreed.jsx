@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Button from '../Button/Button'
+import styles from './ChooseBreed.module.scss'
+import { buttonsTexts } from '../../config/dict'
 
 class ChooseBreed extends Component {
   constructor(props) {
@@ -30,25 +32,27 @@ class ChooseBreed extends Component {
   render() {
     return (
       <div>
-        <select 
+        <select
           onChange={this.onBreedChange}
           value={this.state.currentBreed}
+          className={styles.select}
         >
-          <option>Choose Breed</option>
+          <option className="item">Choose Breed</option>
           {
             this.state.listOfBreeds.map(Breed => (
               <option
                 value={Breed}
                 key={Breed}
+                className="item"
               >
-                {Breed}
-                </option>
+                {Breed}</option>
             ))
           }
         </select>
         <Button
-          text={'Go'}
+          text={buttonsTexts.dogifyButtonText}
           onButtonClick={() => this.props.onGoClick(this.state.currentBreed)}
+          buttonClassName= {styles['dogify-button']}
         />
       </div>
     )
